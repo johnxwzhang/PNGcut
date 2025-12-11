@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG切分工具 - UI素材切分器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- 页面头部 -->
+        <header class="app-header">
+            <div class="header-wrapper">
+                <div class="header-text">
+                    <h1 id="page-title">PNG切分工具</h1>
+                    <p class="subtitle" id="page-subtitle">将带Alpha通道的PNG图片切分成多个矩形图片</p>
+                </div>
+                <div class="header-language">
+                    <div id="language-switcher" class="language-switcher">
+                        <!-- 语言切换按钮将动态插入这里 -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="app-main">
+            <!-- 文件上传区域 -->
+            <div class="upload-section">
+                <label for="file-upload" class="upload-button" id="upload-label">
+                    选择PNG图片
+                </label>
+                <input
+                    id="file-upload"
+                    type="file"
+                    accept="image/png"
+                    style="display: none;"
+                />
+            </div>
+
+            <!-- 错误提示 -->
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <!-- 原始图片预览 -->
+            <div id="preview-section" class="preview-section" style="display: none;">
+                <h2 id="original-image-title">原始图片</h2>
+                <div class="image-container">
+                    <img id="original-image" src="" alt="原始图片" class="preview-image">
+                </div>
+            </div>
+
+            <!-- 切分结果 -->
+            <div id="results-section" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2 id="results-title">切分结果</h2>
+                    <button id="download-all-button" class="download-all-button">
+                        下载全部
+                    </button>
+                </div>
+                <p class="results-description" id="results-description">
+                    已识别并切分以下独立的UI组件，每个组件都被切分成独立的PNG图片：
+                </p>
+                <div id="images-grid" class="images-grid">
+                    <!-- 切分后的图片将动态插入这里 -->
+                </div>
+            </div>
+
+            <!-- 加载指示器 -->
+            <div id="loading-overlay" class="loading-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p id="loading-text">正在处理图片...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="locales.js"></script>
+    <script src="imageProcessor.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
